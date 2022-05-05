@@ -8,3 +8,13 @@
   text-align: center;
   border: 2px solid #cccccc;
 }
+
+.EmployeeList ul {
+  list-style: none;
+}
+
+li.EmployeeRow {
+  padding: 5px;
+  margin: 5px 0;
+  background-color: #eee
+}

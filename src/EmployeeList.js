@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
+import EmployeeRow from "./EmployeeRow";
 
-export default function EmployeeList() {
+const EmployeeList = () => {
   let [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -15,9 +16,11 @@ export default function EmployeeList() {
     <div className="EmployeeList">
       <ul>
         {users.map((user, i) => {
-          return <li id="user-#{i}">{user.name}</li>;
+          return <EmployeeRow user={user} index={i} />
         })}
       </ul>
     </div>
   );
-}
+};
+
+export default EmployeeList;
