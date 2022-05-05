@@ -3,16 +3,21 @@ import {AppContext} from "./App";
 
 const EmployeeRow = props => {
   const [amount, setAmount] = useState(0)
-  const amountInput = useRef();
-  const {amounts} = useContext(AppContext)
+  const amountInput = useRef(null);
+  const {amounts, setAmounts} = useContext(AppContext)
+  const {user} = props;
 
   const onChangeAmount = event => {
-    setAmount(amountInput.current)
+    const input = amountInput.current
+    setAmount(input.value);
   }
 
   useEffect(() => {
-    amounts[props.user.id] = 0
-  }, []);
+    setAmounts({...amounts, [user.id]: amount})
+    // let newAmounts = amounts;
+    // newAmounts[user.id] = amount;
+    // setAmounts(newAmounts)
+  }, [user, amount]);
 
   return (
     <li className="EmployeeRow">

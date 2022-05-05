@@ -1,10 +1,12 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import EmployeeRow from "./EmployeeRow";
+import {AppContext} from "./App";
 
 const EmployeeList = () => {
-  let [users, setUsers] = useState([]);
+  const {users, setUsers} = useContext(AppContext)
 
   useEffect(() => {
+    if (typeof setUsers === 'undefined') return;
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((response) => {
@@ -15,8 +17,8 @@ const EmployeeList = () => {
   return (
     <div className="EmployeeList">
       <ul>
-        {users.map((user, i) => {
-          return <EmployeeRow user={user} index={i} />
+        {users && users.map(user => {
+          return <EmployeeRow user={user} />
         })}
       </ul>
     </div>

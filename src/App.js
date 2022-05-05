@@ -1,17 +1,19 @@
 import "./styles.css";
 import EmployeeList from "./EmployeeList";
-import {createContext} from "react";
+import {createContext, useState} from "react";
 import TotalAmount from "./TotalAmount";
 
-export const AppContext = createContext({
-  amounts: [],
-});
+export const AppContext = createContext();
 
 export default function App() {
-
+  const [amounts, setAmounts] = useState({});
+  const [users, setUsers] = useState([]);
   return (
     <AppContext.Provider value={{
-      amounts: {}
+      amounts,
+      setAmounts,
+      users,
+      setUsers
     }}>
       <div className="App">
         <h1>Justmocks Pay Center </h1>
