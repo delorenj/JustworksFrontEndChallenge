@@ -14,3 +14,8 @@ The system will keep track of the total to be paid out on Payday.
 * Create as many components as you think necessary
 * Show as many react concepts as you feel comfortable with (useEffect, useRef, useMemo, useCallback, etc...)
 * (optional) Add tests as you see fit
+
+### Mock data
+To get a list of employees, make a GET request to:
+
+`https://jsonplaceholder.typicode.com/users`
